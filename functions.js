@@ -1,7 +1,3 @@
-function initialize(){
-  getDefaultChart("all");
-  
-}
 function getChart(chart){
   var target = $("#chart").get(0).getContext("2d");
   $.ajax("/",{
@@ -20,8 +16,4 @@ function getChart(chart){
         new Chart(target).Line(data);
       }
     });
-}
-
-function addEventListener(){
-
 }
