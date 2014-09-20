@@ -1,0 +1,4 @@
+function initialize(){
+  getDefaultChart("all");
+  
+}
