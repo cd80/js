@@ -1,8 +1,15 @@
+var chartloaded = 0;
+var chartloading = 0;
+
 function getChart(chart){
+  /*
+    imported: main, statistics 
+    chart : target name
+  */
   var target = $("#chart").get(0).getContext("2d");
   $.ajax("/",{
       cache: false,
-      data: {p: "chart",
+      data: {m: "chart",
              target: chart},
       method: "GET",
       error: function(xhr, status, error){
@@ -12,8 +19,7 @@ function getChart(chart){
         if(data == "DBCONFAILED"){
           console.log("error");
         }
-        data = eval(data);
-        new Chart(target).Line(data);
+        new Chart(target).Line( eval ( data ) );
       }
     });
 }
